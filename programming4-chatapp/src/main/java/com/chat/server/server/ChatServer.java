@@ -6,6 +6,8 @@ import java.net.Socket;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import com.chat.server.model.Message;
+
 
 public class ChatServer {
     private static final int PORT = 5000;
@@ -30,7 +32,7 @@ public class ChatServer {
         
 
     }
-    public void broadcast(String message, ClientHandler sender) {
+    public void broadcast(Message message, ClientHandler sender) {
         for (ClientHandler client : clients) {
             if (client != sender) {
                 client.sendMessage(message);

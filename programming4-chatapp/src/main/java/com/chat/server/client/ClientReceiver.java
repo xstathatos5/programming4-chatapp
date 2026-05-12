@@ -1,24 +1,27 @@
 package com.chat.server.client;
-import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+
+import com.chat.server.model.Message;
 
 
 public class ClientReceiver implements Runnable {
     
-    private BufferedReader reader;
+    private ObjectInputStream reader;
 
-    public ClientReceiver(ChatClient client, BufferedReader reader) { 
+    public ClientReceiver(ChatClient client, ObjectInputStream reader) { 
         this.reader = reader;
     }
 
     @Override
     public void run() {
         try {
-            String serverMessage;
-            while((serverMessage = reader.readLine()) != null) {
-                System.out.println(serverMessage);
+            Object input = reader.readObject();
+            Message serverMessage;
+            while((serverMessage = (Message) reader.readObject()) != null) {
+                System.out.println(serverMessage.getContent());
             }
-        } catch (IOException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
