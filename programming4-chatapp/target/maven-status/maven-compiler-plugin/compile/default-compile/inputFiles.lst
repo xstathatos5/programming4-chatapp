@@ -1,1 +1,11 @@
 C:\Users\xen\programming4-chatapp\programming4-chatapp\src\main\java\com\chat\server\App.java
+C:\Users\xen\programming4-chatapp\programming4-chatapp\src\main\java\com\chat\server\client\ChatClient.java
+C:\Users\xen\programming4-chatapp\programming4-chatapp\src\main\java\com\chat\server\client\ClientReceiver.java
+C:\Users\xen\programming4-chatapp\programming4-chatapp\src\main\java\com\chat\server\model\Message.java
+C:\Users\xen\programming4-chatapp\programming4-chatapp\src\main\java\com\chat\server\server\ChatServer.java
+C:\Users\xen\programming4-chatapp\programming4-chatapp\src\main\java\com\chat\server\server\ClientHandler.java
+C:\Users\xen\programming4-chatapp\programming4-chatapp\src\main\java\com\chat\server\server\ServerLogger.java
+C:\Users\xen\programming4-chatapp\programming4-chatapp\src\main\java\com\chat\server\server\WebServer.java
+C:\Users\xen\programming4-chatapp\programming4-chatapp\src\main\java\com\chat\server\util\Constants.java
+C:\Users\xen\programming4-chatapp\programming4-chatapp\src\main\java\com\chat\server\util\Encryption.java
+C:\Users\xen\programming4-chatapp\programming4-chatapp\src\main\java\com\chat\server\util\WordFilter.java

@@ -36,6 +36,8 @@ public class ClientHandler implements Runnable {
 
             String message;
             while ((message = reader.readLine()) != null) {
+                ServerLogger.log("MESSAGE", "Received message from " + username + ": " + message);
+                server.broadcast(username + ": " + message, this);
                 if (message.equalsIgnoreCase("/quit")) {
                     break;
                 }

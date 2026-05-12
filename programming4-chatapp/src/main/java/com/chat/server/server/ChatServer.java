@@ -11,18 +11,24 @@ public class ChatServer {
     private static final int PORT = 5000;
     private List<ClientHandler> clients = new CopyOnWriteArrayList<>();
     public void start() {
+        ServerLogger.log("SERVER","Chat server on port " + PORT);
+        
         try (ServerSocket serverSocket = new ServerSocket(PORT)) {
-            System.out.println("Chat server started on port " + PORT);
+            ServerLogger.log("SERVER", "Chat server started on port " + PORT);
             while (true) {
                 Socket clientSocket = serverSocket.accept();
-                System.out.println("New client connected: " + clientSocket.getInetAddress());
+                ServerLogger.log("CONNECTION", "New client connected: " + clientSocket.getInetAddress());
                 ClientHandler clientHandler = new ClientHandler(clientSocket, this);
                 clients.add(clientHandler);
                 new Thread(clientHandler).start();
             }
+            
         } catch (IOException e) {
-            e.printStackTrace();
+            ServerLogger.log("ERROR", "Error occurred while starting the server: " + e.getMessage());
         }
+
+        
+
     }
     public void broadcast(String message, ClientHandler sender) {
         for (ClientHandler client : clients) {
@@ -37,4 +43,5 @@ public class ChatServer {
     public static void main(String[] args) {
         new ChatServer().start();
     }
+    
 }

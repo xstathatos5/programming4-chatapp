@@ -1,0 +1,5 @@
+[2026-05-12 17:50:12] [SERVER] Chat server on port 5000
+[2026-05-12 17:50:12] [SERVER] Chat server started on port 5000
+[2026-05-12 17:51:58] [CONNECTION] New client connected: /127.0.0.1
+[2026-05-12 17:52:10] [MESSAGE] Received message from XenStath: Hello
+[2026-05-12 17:52:33] [MESSAGE] Received message from XenStath: Oh yeah its working

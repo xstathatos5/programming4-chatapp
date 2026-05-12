@@ -1,0 +1,11 @@
+com\chat\server\App.class
+com\chat\server\model\Message.class
+com\chat\server\server\ChatServer.class
+com\chat\server\util\Constants.class
+com\chat\server\client\ChatClient.class
+com\chat\server\server\WebServer.class
+com\chat\server\util\Encryption.class
+com\chat\server\util\WordFilter.class
+com\chat\server\server\ServerLogger.class
+com\chat\server\client\ClientReceiver.class
+com\chat\server\server\ClientHandler.class
