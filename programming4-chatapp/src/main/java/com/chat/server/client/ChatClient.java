@@ -1,8 +1,7 @@
 package com.chat.server.client;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.Scanner;
@@ -22,27 +21,25 @@ public class ChatClient {
     public void execute() {
         try (Socket socket = new Socket(hostName, port);
              ObjectOutputStream writer = new ObjectOutputStream(socket.getOutputStream());
-             BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+             ObjectInputStream reader = new ObjectInputStream(socket.getInputStream());
              Scanner scanner = new Scanner(System.in)) {
 
             System.out.println("Connected to the chat server");
             System.out.print("Enter your username: ");
             this.username = scanner.nextLine();
-            writer.writeObject(new Message(username));
+            writer.writeObject(this.username);
             writer.flush();
 
             new Thread(() -> {
                 try {
                     Object incoming;
-                    while ((incoming = reader.readLine()) != null) {
+                    while ((incoming = reader.readObject()) != null) {
                         if (incoming instanceof Message) {
                             Message message = (Message) incoming;
                             System.out.println(message.getContent());
-                        } else {
-                            System.out.println(incoming);
                         }
                     }
-                } catch (IOException e) {
+                } catch (IOException | ClassNotFoundException e) {
                     e.printStackTrace();
                 }
             }).start();

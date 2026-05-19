@@ -3,3 +3,14 @@
 [2026-05-12 17:51:58] [CONNECTION] New client connected: /127.0.0.1
 [2026-05-12 17:52:10] [MESSAGE] Received message from XenStath: Hello
 [2026-05-12 17:52:33] [MESSAGE] Received message from XenStath: Oh yeah its working
+[2026-05-19 14:22:19] [SERVER] Chat server on port 5000
+[2026-05-19 14:22:19] [SERVER] Chat server started on port 5000
+[2026-05-19 14:23:29] [SERVER] Chat server on port 5000
+[2026-05-19 14:23:29] [ERROR] Error occurred while starting the server: Address already in use: bind
+[2026-05-19 14:25:26] [CONNECTION] New client connected: /127.0.0.1
+[2026-05-19 14:26:43] [SERVER] Chat server on port 5000
+[2026-05-19 14:26:43] [ERROR] Error occurred while starting the server: Address already in use: bind
+[2026-05-19 14:29:35] [SERVER] Chat server on port 5000
+[2026-05-19 14:29:35] [SERVER] Chat server started on port 5000
+[2026-05-19 14:30:09] [CONNECTION] New client connected: /127.0.0.1
+[2026-05-19 14:30:26] [MESSAGE] xen: [2026-05-19 14:30:26] SERVER: hello
