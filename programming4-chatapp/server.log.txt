@@ -26,3 +26,12 @@
 [2026-05-19 15:26:48] [MESSAGE] bob: [2026-05-19 15:26:48] SERVER: hello
 [2026-05-19 15:27:09] [MESSAGE] Xen: [2026-05-19 15:27:09] SERVER: how are you
 [2026-05-19 15:27:16] [MESSAGE] bob: [2026-05-19 15:27:16] SERVER: im good
+[2026-05-19 16:58:07] [SERVER] Chat server on port 5000
+[2026-05-19 16:58:07] [WEB] Web dashboard started on port 8000
+[2026-05-19 16:58:07] [SERVER] Chat server started on port 5000
+[2026-05-19 16:58:37] [CONNECTION] New client connected: /127.0.0.1
+[2026-05-19 16:59:08] [CONNECTION] New client connected: /127.0.0.1
+[2026-05-19 16:59:13] [MESSAGE] bob: [2026-05-19 16:59:13] SERVER: Hello
+[2026-05-19 16:59:20] [MESSAGE] xen: [2026-05-19 16:59:20] SERVER: Hi
+[2026-05-19 17:00:24] [MESSAGE] xen: [2026-05-19 17:00:24] SERVER: My boy
+[2026-05-19 17:00:31] [MESSAGE] bob: [2026-05-19 17:00:31] SERVER: Yes lad
