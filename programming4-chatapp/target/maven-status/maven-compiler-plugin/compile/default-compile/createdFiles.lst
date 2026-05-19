@@ -4,6 +4,7 @@ com\chat\server\server\ChatServer.class
 com\chat\server\util\Constants.class
 com\chat\server\client\ChatClient.class
 com\chat\server\server\WebServer.class
+com\chat\server\server\WebServer$DashboardHandler.class
 com\chat\server\util\Encryption.class
 com\chat\server\util\WordFilter.class
 com\chat\server\server\ServerLogger.class

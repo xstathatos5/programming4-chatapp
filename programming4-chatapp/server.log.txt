@@ -14,3 +14,15 @@
 [2026-05-19 14:29:35] [SERVER] Chat server started on port 5000
 [2026-05-19 14:30:09] [CONNECTION] New client connected: /127.0.0.1
 [2026-05-19 14:30:26] [MESSAGE] xen: [2026-05-19 14:30:26] SERVER: hello
+[2026-05-19 15:22:15] [MESSAGE] xen: [2026-05-19 15:22:15] SERVER: hi
+[2026-05-19 15:22:17] [MESSAGE] xen: [2026-05-19 15:22:17] SERVER: lajnda
+[2026-05-19 15:23:34] [SERVER] Chat server on port 5000
+[2026-05-19 15:23:34] [WEB] Web dashboard started on port 8000
+[2026-05-19 15:23:34] [SERVER] Chat server started on port 5000
+[2026-05-19 15:24:08] [CONNECTION] New client connected: /127.0.0.1
+[2026-05-19 15:24:15] [MESSAGE] bob: [2026-05-19 15:24:15] SERVER: hello
+[2026-05-19 15:25:04] [CONNECTION] New client connected: /127.0.0.1
+[2026-05-19 15:25:11] [MESSAGE] Xen: [2026-05-19 15:25:11] SERVER: Hi bob
+[2026-05-19 15:26:48] [MESSAGE] bob: [2026-05-19 15:26:48] SERVER: hello
+[2026-05-19 15:27:09] [MESSAGE] Xen: [2026-05-19 15:27:09] SERVER: how are you
+[2026-05-19 15:27:16] [MESSAGE] bob: [2026-05-19 15:27:16] SERVER: im good
