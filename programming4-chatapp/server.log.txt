@@ -1,0 +1,52 @@
+[2026-05-12 17:50:12] [SERVER] Chat server on port 5000
+[2026-05-12 17:50:12] [SERVER] Chat server started on port 5000
+[2026-05-12 17:51:58] [CONNECTION] New client connected: /127.0.0.1
+[2026-05-12 17:52:10] [MESSAGE] Received message from XenStath: Hello
+[2026-05-12 17:52:33] [MESSAGE] Received message from XenStath: Oh yeah its working
+[2026-05-19 14:22:19] [SERVER] Chat server on port 5000
+[2026-05-19 14:22:19] [SERVER] Chat server started on port 5000
+[2026-05-19 14:23:29] [SERVER] Chat server on port 5000
+[2026-05-19 14:23:29] [ERROR] Error occurred while starting the server: Address already in use: bind
+[2026-05-19 14:25:26] [CONNECTION] New client connected: /127.0.0.1
+[2026-05-19 14:26:43] [SERVER] Chat server on port 5000
+[2026-05-19 14:26:43] [ERROR] Error occurred while starting the server: Address already in use: bind
+[2026-05-19 14:29:35] [SERVER] Chat server on port 5000
+[2026-05-19 14:29:35] [SERVER] Chat server started on port 5000
+[2026-05-19 14:30:09] [CONNECTION] New client connected: /127.0.0.1
+[2026-05-19 14:30:26] [MESSAGE] xen: [2026-05-19 14:30:26] SERVER: hello
+[2026-05-19 15:22:15] [MESSAGE] xen: [2026-05-19 15:22:15] SERVER: hi
+[2026-05-19 15:22:17] [MESSAGE] xen: [2026-05-19 15:22:17] SERVER: lajnda
+[2026-05-19 15:23:34] [SERVER] Chat server on port 5000
+[2026-05-19 15:23:34] [WEB] Web dashboard started on port 8000
+[2026-05-19 15:23:34] [SERVER] Chat server started on port 5000
+[2026-05-19 15:24:08] [CONNECTION] New client connected: /127.0.0.1
+[2026-05-19 15:24:15] [MESSAGE] bob: [2026-05-19 15:24:15] SERVER: hello
+[2026-05-19 15:25:04] [CONNECTION] New client connected: /127.0.0.1
+[2026-05-19 15:25:11] [MESSAGE] Xen: [2026-05-19 15:25:11] SERVER: Hi bob
+[2026-05-19 15:26:48] [MESSAGE] bob: [2026-05-19 15:26:48] SERVER: hello
+[2026-05-19 15:27:09] [MESSAGE] Xen: [2026-05-19 15:27:09] SERVER: how are you
+[2026-05-19 15:27:16] [MESSAGE] bob: [2026-05-19 15:27:16] SERVER: im good
+[2026-05-19 16:58:07] [SERVER] Chat server on port 5000
+[2026-05-19 16:58:07] [WEB] Web dashboard started on port 8000
+[2026-05-19 16:58:07] [SERVER] Chat server started on port 5000
+[2026-05-19 16:58:37] [CONNECTION] New client connected: /127.0.0.1
+[2026-05-19 16:59:08] [CONNECTION] New client connected: /127.0.0.1
+[2026-05-19 16:59:13] [MESSAGE] bob: [2026-05-19 16:59:13] SERVER: Hello
+[2026-05-19 16:59:20] [MESSAGE] xen: [2026-05-19 16:59:20] SERVER: Hi
+[2026-05-19 17:00:24] [MESSAGE] xen: [2026-05-19 17:00:24] SERVER: My boy
+[2026-05-19 17:00:31] [MESSAGE] bob: [2026-05-19 17:00:31] SERVER: Yes lad
+[2026-05-20 01:09:48] [SERVER] Chat server on port 5000
+[2026-05-20 01:09:48] [WEB] Web dashboard started on port 8000
+[2026-05-20 01:09:48] [SERVER] Chat server started on port 5000
+[2026-05-20 01:10:39] [CONNECTION] New client connected: /127.0.0.1
+[2026-05-20 01:11:15] [CONNECTION] New client connected: /127.0.0.1
+[2026-05-20 01:11:28] [MESSAGE] xen: [2026-05-20 01:11:28] SERVER: Hi myla
+[2026-05-20 01:11:55] [MESSAGE] myla: [2026-05-20 01:11:55] SERVER: hello
+[2026-05-20 01:12:36] [MESSAGE] xen: [2026-05-20 01:12:36] SERVER: thanks
+[2026-06-03 13:44:50] [SERVER] Chat server on port 5000
+[2026-06-03 13:44:50] [WEB] Web dashboard started on port 8000
+[2026-06-03 13:44:50] [SERVER] Chat server started on port 5000
+[2026-06-03 13:45:11] [CONNECTION] New client connected: /127.0.0.1
+[2026-06-03 13:45:18] [MESSAGE] xen: [2026-06-03 13:45:18] SERVER: hello
+[2026-06-03 13:45:47] [CONNECTION] New client connected: /127.0.0.1
+[2026-06-03 13:45:55] [MESSAGE] ben: [2026-06-03 13:45:55] SERVER: Hello
