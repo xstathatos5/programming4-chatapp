@@ -70,6 +70,9 @@ public class ClientHandler implements Runnable {
             e.printStackTrace();
         }
     }
+    public String getUsername() {
+        return username;
+    }
 
     private void closeConnection() {
         try {

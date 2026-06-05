@@ -35,3 +35,28 @@
 [2026-05-19 16:59:20] [MESSAGE] xen: [2026-05-19 16:59:20] SERVER: Hi
 [2026-05-19 17:00:24] [MESSAGE] xen: [2026-05-19 17:00:24] SERVER: My boy
 [2026-05-19 17:00:31] [MESSAGE] bob: [2026-05-19 17:00:31] SERVER: Yes lad
+[2026-06-05 12:49:52] [SERVER] Chat server on port 5000
+[2026-06-05 12:49:52] [WEB] Web dashboard started on port 8000
+[2026-06-05 12:49:52] [SERVER] Chat server started on port 5000
+[2026-06-05 12:50:34] [CONNECTION] New client connected: /127.0.0.1
+[2026-06-05 12:50:40] [MESSAGE] xen: [2026-06-05 12:50:40] SERVER: hello
+[2026-06-05 12:54:03] [SERVER] Chat server on port 5000
+[2026-06-05 12:54:03] [WEB] Web dashboard started on port 8000
+[2026-06-05 12:54:03] [SERVER] Chat server started on port 5000
+[2026-06-05 13:02:52] [SERVER] Chat server on port 5000
+[2026-06-05 13:02:52] [WEB] Web dashboard started on port 8000
+[2026-06-05 13:02:52] [SERVER] Chat server started on port 5000
+[2026-06-05 13:03:26] [CONNECTION] New client connected: /127.0.0.1
+[2026-06-05 13:03:32] [MESSAGE] xen: [2026-06-05 13:03:32] SERVER: hello
+[2026-06-05 13:04:14] [CONNECTION] New client connected: /127.0.0.1
+[2026-06-05 13:04:21] [MESSAGE] myla: [2026-06-05 13:04:21] SERVER: hello
+[2026-06-05 13:27:03] [SERVER] Chat server on port 5000
+[2026-06-05 13:27:03] [ERROR] Failed to start web server: Address already in use: bind
+[2026-06-05 13:27:03] [ERROR] Error occurred while starting the server: Address already in use: bind
+[2026-06-05 13:28:15] [SERVER] Chat server on port 5000
+[2026-06-05 13:28:15] [WEB] Web dashboard started on port 8000
+[2026-06-05 13:28:15] [SERVER] Chat server started on port 5000
+[2026-06-05 13:28:49] [CONNECTION] New client connected: /127.0.0.1
+[2026-06-05 13:28:57] [MESSAGE] bob: [2026-06-05 13:28:57] SERVER: hello
+[2026-06-05 13:29:25] [CONNECTION] New client connected: /127.0.0.1
+[2026-06-05 13:29:33] [MESSAGE] xen: [2026-06-05 13:29:33] SERVER: hello

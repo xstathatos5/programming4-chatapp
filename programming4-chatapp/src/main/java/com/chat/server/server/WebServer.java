@@ -35,10 +35,18 @@ public class WebServer {
         public void handle(HttpExchange exchange) throws IOException {
             int activeUsers = chatServer.getClientCount();
             long totalMessages = chatServer.getTotalMessages();
+            StringBuilder userList = new StringBuilder("<ul>");
+
+            for (String username : chatServer.getUsernames()) {
+                userList.append("<li>").append(username).append("</li>");
+            }
+            userList.append("</ul>");
+
             String response = "<html><head><title>Chat Server Dashboard</title></head><body>" +
                     "<h1>Chat Server Dashboard</h1>" +
                     "<p>Connected clients: " + activeUsers + "</p>" +
                     "<p>Total messages: " + totalMessages + "</p>" +
+                    "<p>User List: " + userList.toString() + "</p>" +
                     "</body></html>";
 
             byte[] bytes = response.getBytes("UTF-8");

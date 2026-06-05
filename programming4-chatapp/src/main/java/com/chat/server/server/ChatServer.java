@@ -57,6 +57,9 @@ public class ChatServer {
     public long getTotalMessages() {
         return totalMessages.get();
     }
+    public List<String> getUsernames() {
+        return clients.isEmpty() ? List.of("No users connected") : clients.stream().map(ClientHandler::getUsername).toList();
+    }
     public static void main(String[] args) {
         new ChatServer().start();
     }
