@@ -4,5 +4,6 @@ to start the server chat
     mvn exec:java "-Dexec.mainClass=com.chat.server.server.ChatServer"
 3.  Open a new Terminal
 4.  mvn exec:java "-Dexec.mainClass=com.chat.server.client.ChatClient"
+5. Run the GUI mvn exec:java "-Dexec.mainClass=com.chat.server.GUI.ChatAppGUI"
 
 Web server link: http://localhost:8000/
