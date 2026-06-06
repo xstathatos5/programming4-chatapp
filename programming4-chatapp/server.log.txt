@@ -100,3 +100,25 @@
 [2026-06-05 22:12:21] [MESSAGE] xen: [2026-06-05 22:12:21] SERVER: xen: hello
 [2026-06-05 22:12:37] [MESSAGE] bob: [2026-06-05 22:12:37] SERVER: bob: are you getting my messgaes
 [2026-06-05 22:12:51] [MESSAGE] xen: [2026-06-05 22:12:51] SERVER: xen: no I am not
+[2026-06-06 22:58:30] [SERVER] Chat server on port 5000
+[2026-06-06 22:58:30] [WEB] Web dashboard started on port 8000
+[2026-06-06 22:58:30] [SERVER] Chat server started on port 5000
+[2026-06-06 22:59:10] [CONNECTION] New client connected: /127.0.0.1
+[2026-06-06 22:59:20] [MESSAGE] xen: [2026-06-06 22:59:20] SERVER: xen: hello
+[2026-06-06 22:59:50] [CONNECTION] New client connected: /127.0.0.1
+[2026-06-06 22:59:50] [MESSAGE] xen: [2026-06-06 22:59:50] SERVER: /list
+[2026-06-06 22:59:56] [MESSAGE] bob: [2026-06-06 22:59:56] SERVER: bob: hello
+[2026-06-06 23:00:04] [MESSAGE] xen: [2026-06-06 23:00:04] SERVER: xen: hello
+[2026-06-06 23:00:20] [MESSAGE] bob: [2026-06-06 23:00:20] SERVER: bob: why can you not get my message
+[2026-06-06 23:21:23] [SERVER] Chat server on port 5000
+[2026-06-06 23:21:23] [WEB] Web dashboard started on port 8000
+[2026-06-06 23:21:23] [SERVER] Chat server started on port 5000
+[2026-06-06 23:23:04] [SERVER] Chat server on port 5000
+[2026-06-06 23:23:04] [WEB] Web dashboard started on port 8000
+[2026-06-06 23:23:04] [SERVER] Chat server started on port 5000
+[2026-06-06 23:23:43] [CONNECTION] New client connected: /127.0.0.1
+[2026-06-06 23:24:14] [CONNECTION] New client connected: /127.0.0.1
+[2026-06-06 23:24:14] [MESSAGE] xen: [2026-06-06 23:24:14] SERVER: /list
+[2026-06-06 23:24:22] [MESSAGE] bob: [2026-06-06 23:24:22] SERVER: bob: hello
+[2026-06-06 23:24:28] [MESSAGE] xen: [2026-06-06 23:24:28] SERVER: xen: hello
+[2026-06-06 23:24:35] [MESSAGE] bob: [2026-06-06 23:24:35] SERVER: bob: what a lad

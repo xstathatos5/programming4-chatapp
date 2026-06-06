@@ -43,9 +43,9 @@ public class ChatAppGUI extends Application {
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         try {
-            cssPath = getClass().getResource("/styles.css").toExternalForm();
+            cssPath = getClass().getResource("/theme.css").toExternalForm();
         } catch (NullPointerException e) {
-            System.out.println("CSS file not found. Make sure styles.css is in the resources folder.");  
+            System.out.println("CSS file not found. Make sure theme.css is in the resources folder.");  
         }
         showLoginScreen();
     }
@@ -204,6 +204,13 @@ public class ChatAppGUI extends Application {
                         Platform.runLater(() -> {
                             appendChatMessage(message.toString());
                             handleDirectoryUpdates(message.getContent());
+                        });
+                    }
+                    else if (incoming instanceof List){
+                        @SuppressWarnings("unchecked")
+                        List<String> users = (List<String>) incoming;
+                        Platform.runLater(() -> {
+                            userListView.getItems().setAll(users);
                         });
                     }
                 }
