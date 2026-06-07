@@ -1,9 +1,35 @@
-to start the server chat
-1.  cd c:\Users\xen\programming4-chatapp\programming4-chatapp
-2.  mvn clean compile
-    mvn exec:java "-Dexec.mainClass=com.chat.server.server.ChatServer"
-3.  Open a new Terminal
-4.  mvn exec:java "-Dexec.mainClass=com.chat.server.client.ChatClient"
-5. Run the GUI mvn exec:java "-Dexec.mainClass=com.chat.server.GUI.ChatAppGUI"
+Read Me
+This is a message application that opens a server and allows people to send text messages. It includes a JavaFX-based GUI for real-time messaging and an admin website that displays a user list and the number of messages sent.
 
-Web server link: http://localhost:8000/
+Software Requirements
+- Java 21 or later
+- Maven 3.6+
+- Port 5000 and 8000 available
+
+Installation
+- cd c:\Users\xen\programming4-chatapp\programming4-chatapp
+- mvn clean compile
+
+Running Application
+Start server
+- cd c:\Users\xen\programming4-chatapp\programming4-chatapp
+- mvn exec:java "-Dexec.mainClass=com.chat.server.server.ChatServer"
+Start GUI Client
+- cd c:\Users\xen\programming4-chatapp\programming4-chatapp
+- mvn exec:java "-Dexec.mainClass=com.chat.server.GUI.ChatAppGUI"
+Or Start CLI Client
+- cd c:\Users\xen\programming4-chatapp\programming4-chatapp
+- mvn exec:java "-Dexec.mainClass=com.chat.server.client.ChatClient"
+Web server link: 
+- http://localhost:8000/
+Server Instructions
+- Enter username and password
+- Type messages and press Enter
+- Use command buttons
+
+Architecture
+- Server: Handles multiple client connections and broadcasts messages
+- GUI client: JavaFX interface for convenience
+- CLI Client: Terminal Client server
+
+Made by Xen Stathatos
