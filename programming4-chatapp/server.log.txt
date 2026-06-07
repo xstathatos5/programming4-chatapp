@@ -122,3 +122,26 @@
 [2026-06-06 23:24:22] [MESSAGE] bob: [2026-06-06 23:24:22] SERVER: bob: hello
 [2026-06-06 23:24:28] [MESSAGE] xen: [2026-06-06 23:24:28] SERVER: xen: hello
 [2026-06-06 23:24:35] [MESSAGE] bob: [2026-06-06 23:24:35] SERVER: bob: what a lad
+[2026-06-06 23:30:47] [SERVER] Chat server on port 5000
+[2026-06-06 23:30:47] [WEB] Web dashboard started on port 8000
+[2026-06-06 23:30:47] [SERVER] Chat server started on port 5000
+[2026-06-07 00:34:51] [SERVER] Chat server on port 5000
+[2026-06-07 00:34:52] [WEB] Web dashboard started on port 8000
+[2026-06-07 00:34:52] [SERVER] Chat server started on port 5000
+[2026-06-07 00:35:28] [CONNECTION] New client connected: /127.0.0.1
+[2026-06-07 00:35:36] [CONNECTION] New client connected: /127.0.0.1
+[2026-06-07 00:36:31] [CONNECTION] New client connected: /127.0.0.1
+[2026-06-07 00:36:37] [MESSAGE] bob: [2026-06-07 00:36:37] SERVER: bob: hello
+[2026-06-07 00:36:50] [MESSAGE] bob: [2026-06-07 00:36:50] SERVER: bob: hello bob
+[2026-06-07 00:37:04] [MESSAGE] xen: [2026-06-07 00:37:04] SERVER: xen: hello bob
+[2026-06-07 00:50:33] [SERVER] Chat server on port 5000
+[2026-06-07 00:50:33] [WEB] Web dashboard started on port 8000
+[2026-06-07 00:50:33] [SERVER] Chat server started on port 5000
+[2026-06-07 00:50:57] [CONNECTION] New client connected: /127.0.0.1
+[2026-06-07 00:51:40] [CONNECTION] New client connected: /127.0.0.1
+[2026-06-07 00:51:58] [MESSAGE] bob: [2026-06-07 00:51:58] SERVER: bob: hello
+[2026-06-07 00:52:34] [CONNECTION] New client connected: /127.0.0.1
+[2026-06-07 00:52:40] [MESSAGE] billly: [2026-06-07 00:52:40] SERVER: billly: Hi
+[2026-06-07 00:53:05] [MESSAGE] billly: [2026-06-07 00:53:05] SERVER: billly: Hello
+[2026-06-07 00:53:20] [MESSAGE] bob: [2026-06-07 00:53:20] SERVER: bob: good lad
+[2026-06-07 00:53:31] [MESSAGE] xen: [2026-06-07 00:53:31] SERVER: :)

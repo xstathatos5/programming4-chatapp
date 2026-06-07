@@ -51,6 +51,12 @@ public class ChatAppGUI extends Application {
     }
 
     private void showLoginScreen() {
+        writer = null;
+        reader = null;
+        socket = null;
+        chatArea = null;
+        userListView = null;
+        messageField = null;
         VBox loginLayout = new VBox(10);
         loginLayout.setPadding(new Insets(20));
 
@@ -195,31 +201,32 @@ public class ChatAppGUI extends Application {
     }
 
     private void startListening() {
-        Thread recieverThread = new Thread(() -> {
-            try {
-                Object incoming;
-                while(socket != null && !socket.isClosed() && (incoming = reader.readObject()) != null){
-                    if (incoming instanceof Message){
-                        Message message = (Message) incoming;
-                        Platform.runLater(() -> {
-                            appendChatMessage(message.toString());
-                            handleDirectoryUpdates(message.getContent());
-                        });
-                    }
-                    else if (incoming instanceof List){
-                        @SuppressWarnings("unchecked")
-                        List<String> users = (List<String>) incoming;
-                        Platform.runLater(() -> {
-                            userListView.getItems().setAll(users);
-                        });
-                    }
+    Thread receiverThread = new Thread(() -> {
+        try {
+            Object incoming;
+            while (socket != null && !socket.isClosed() && (incoming = reader.readObject()) != null) {
+                if (incoming instanceof Message) {
+                    Message message = (Message) incoming;
+                    Platform.runLater(() -> appendChatMessage(message.toString()));
+                } else if (incoming instanceof List) {
+                    @SuppressWarnings("unchecked")
+                    List<String> users = (List<String>) incoming;
+                    Platform.runLater(() -> userListView.getItems().setAll(users));
                 }
-            } catch (Exception e) {
             }
-        });
-        recieverThread.setDaemon(true);
-        recieverThread.start();
+        } catch (Exception e) {
+            if (socket != null) {
+                Platform.runLater(() -> {
+                    showAlert("Disconnected", "Lost connection to the server.");
+                    disconnectFromServer();
+                });
+            }
+        }
+    });
+    receiverThread.setDaemon(true);
+    receiverThread.start();
     }
+
 
     private void appendChatMessage(String message){
         if (chatArea != null) {
@@ -232,14 +239,25 @@ public class ChatAppGUI extends Application {
         }
     }
     private void disconnectFromServer() {
-        try{
-            if (writer != null) writer.close();
-            if (reader != null) reader.close();
-            if (socket != null) socket.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+    try {
+        if (writer != null) {
+            writer.writeObject(new Message("/quit"));
+            writer.flush();
         }
+    } catch (IOException e) {
+    } finally {
+        try { if (writer != null) writer.close(); } catch (IOException ignored) {}
+        try { if (reader != null) reader.close(); } catch (IOException ignored) {}
+        try { if (socket != null) socket.close(); } catch (IOException ignored) {}
+
+        writer = null;
+        reader = null;
+        socket = null;
     }
+
+    Platform.runLater(() -> showLoginScreen());
+}
+
     private void updateUserList() {
         try {
             writer.writeObject(new Message("/list"));

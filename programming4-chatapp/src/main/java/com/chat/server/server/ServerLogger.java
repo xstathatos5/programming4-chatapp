@@ -21,7 +21,6 @@ public class ServerLogger {
             writer.newLine();
         } catch (IOException e) {
             e.printStackTrace();
-
         }
     }
 
