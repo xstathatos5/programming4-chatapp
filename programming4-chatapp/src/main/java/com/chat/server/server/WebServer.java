@@ -55,7 +55,17 @@ public class WebServer {
             try (OutputStream os = exchange.getResponseBody()) {
                 os.write(bytes);
             }
+            for (String username : chatServer.getUsernames()) {
+            userList.append("<li>").append(escapeHtml(username)).append("</li>");
+            }
         }
     }
-    
+    private String escapeHtml(String input) {
+    if (input == null) return "";
+    return input.replace("&", "&amp;")
+                .replace("<", "&lt;")
+                .replace(">", "&gt;")
+                .replace("\"", "&quot;")
+                .replace("'", "&#39;");
+    }
 }

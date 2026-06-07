@@ -48,7 +48,7 @@ public class ChatClient {
             do {
                 System.out.print("> ");
                 text = scanner.nextLine();
-                writer.writeObject(new Message(text));
+                writer.writeObject(new Message(text, text));
                 writer.flush();
             } while (!text.equalsIgnoreCase("/quit"));
 

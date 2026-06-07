@@ -154,3 +154,27 @@
 [2026-06-07 15:49:11] [CONNECTION] New client connected: /127.0.0.1
 [2026-06-07 15:49:19] [MESSAGE] xen: [2026-06-07 15:49:19] SERVER: xen: hello
 [2026-06-07 15:49:27] [MESSAGE] sam: [2026-06-07 15:49:27] SERVER: sam: hello mate
+[2026-06-07 18:18:14] [SERVER] Starting chat server...
+[2026-06-07 18:18:14] [WEB] Web dashboard started on port 8000
+[2026-06-07 18:18:14] [SERVER] Chat server listening on port 5000
+[2026-06-07 18:18:46] [CONNECTION] New connection from /127.0.0.1
+[2026-06-07 18:18:46] [JOIN] xen connected from /127.0.0.1
+[2026-06-07 18:19:25] [CONNECTION] New connection from /127.0.0.1
+[2026-06-07 18:19:31] [JOIN] bob connected from /127.0.0.1
+[2026-06-07 18:20:03] [CONNECTION] New connection from /127.0.0.1
+[2026-06-07 18:20:03] [JOIN] billy connected from /127.0.0.1
+[2026-06-07 18:20:11] [MESSAGE] billy: hello
+[2026-06-07 18:20:22] [MESSAGE] xen: Hi
+[2026-06-07 18:20:43] [MESSAGE] xen: how are you doing
+[2026-06-07 18:20:44] [MESSAGE] xen: -fx-background-color: #000000;
+[2026-06-07 18:20:44] [LEAVE] xen disconnected
+[2026-06-07 18:21:57] [LEAVE] billy disconnected
+[2026-06-07 18:22:00] [LEAVE] bob disconnected
+[2026-06-07 18:23:27] [CONNECTION] New connection from /127.0.0.1
+[2026-06-07 18:23:27] [JOIN] xen connected from /127.0.0.1
+[2026-06-07 18:24:01] [CONNECTION] New connection from /127.0.0.1
+[2026-06-07 18:24:01] [JOIN] bob connected from /127.0.0.1
+[2026-06-07 18:24:06] [MESSAGE] xen: disconnected
+[2026-06-07 18:24:06] [LEAVE] xen disconnected
+[2026-06-07 18:24:28] [MESSAGE] bob: disconnected
+[2026-06-07 18:24:28] [LEAVE] bob disconnected

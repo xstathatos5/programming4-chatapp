@@ -199,22 +199,23 @@ public class ChatAppGUI extends Application {
         }
     }
 
-    private void sendMessage(){
-        String text = messageField.getText().trim();
-        if (text.isEmpty()) return;
+    private void sendMessage() {
+    String text = messageField.getText().trim();
+    if (text.isEmpty()) return;
 
-        if (text.equalsIgnoreCase("/quit")) {
-            disconnectFromServer();
-            return;
-        }
-        Message message = new Message(this.username + ": " + text);
-        if (sendMessageToServer(message)) {
-            appendChatMessage(message.toString());
-            messageField.clear();
-        } else {
-            showAlert("Error", "Failed to send message. Please try again.");
-        }
+    if (text.equalsIgnoreCase("/quit")) {
+        disconnectFromServer();
+        return;
     }
+    Message message = new Message(username, text);
+    if (sendMessageToServer(message)) {
+        appendChatMessage(message.toString());
+        messageField.clear();
+    } else {
+        showAlert("Error", "Failed to send message.");
+    }
+}
+
 
     private boolean sendMessageToServer(Message message) {
         try {
@@ -264,7 +265,7 @@ public class ChatAppGUI extends Application {
     private void disconnectFromServer() {
         try {
             if (writer != null) {
-                writer.writeObject(new Message("/quit"));
+                writer.writeObject(new Message("/quit", "disconnected"));
                 writer.flush();
             }
         } catch (IOException e) {

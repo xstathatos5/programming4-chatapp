@@ -7,23 +7,24 @@ import java.net.Socket;
 
 import com.chat.server.model.Message;
 
+
 public class ClientHandler implements Runnable {
-    private Socket socket;
+    private final Socket socket;
+    private final ChatServer server;
     private ObjectOutputStream writer;
     private ObjectInputStream reader;
-    private ChatServer server;
     private String username;
+    private volatile boolean running = true;
 
     public ClientHandler(Socket socket, ChatServer server) {
         this.socket = socket;
         this.server = server;
         try {
-            writer = new ObjectOutputStream(socket.getOutputStream()); 
-            reader = new ObjectInputStream(socket.getInputStream());
-            
-            
+            this.writer = new ObjectOutputStream(socket.getOutputStream());
+            this.writer.flush();
+            this.reader = new ObjectInputStream(socket.getInputStream());
         } catch (IOException e) {
-            e.printStackTrace();
+            ServerLogger.log("ERROR", "Failed to create streams: " + e.getMessage());
         }
     }
 
@@ -31,33 +32,30 @@ public class ClientHandler implements Runnable {
     public void run() {
         try {
             Object obj = reader.readObject();
-            this.username = (String) obj;
-            if (username == null) {
+            if (!(obj instanceof String) || ((String) obj).isBlank()) {
                 closeConnection();
                 return;
             }
-            server.broadcast(new Message(username + " has joined the chat"), this);
-            System.out.println("User " + username + " is now chatting.");
+            this.username = sanitize((String) obj);
             
-            
-            while (true) {
-                try {
-                    Object incoming = reader.readObject();
-                    if (incoming instanceof Message) {
-                        Message message = (Message) incoming;
-                        if (message.getContent().equalsIgnoreCase("/quit")) {
-                            break;
-                        }
-                        ServerLogger.log("MESSAGE", username + ": " + message);
-                        server.broadcast(message, this);
+            ServerLogger.log("JOIN", username + " connected from " + socket.getInetAddress());
+            server.broadcast(Message.systemMessage(username + " has joined the chat"), this);
+            server.broadcastUserList();
+
+            while (running) {
+                Object incoming = reader.readObject();
+                if (incoming instanceof Message msg) {
+                    String content = msg.getContent();
+                    if (content.equalsIgnoreCase("/quit")) {
+                        break;
                     }
-                } catch (IOException | ClassNotFoundException e) {
-                    e.printStackTrace();
-                    break;
+                    Message chatMessage = new Message(username, content);
+                    ServerLogger.log("MESSAGE", username + ": " + content);
+                    server.broadcast(chatMessage, this);
                 }
             }
-       
         } catch (IOException | ClassNotFoundException e) {
+        } finally {
             closeConnection();
         }
     }
@@ -65,27 +63,40 @@ public class ClientHandler implements Runnable {
     public void sendMessage(Message message) {
         try {
             writer.writeObject(message);
-            writer.flush();  
+            writer.flush();
         } catch (IOException e) {
-            e.printStackTrace();
+            ServerLogger.log("ERROR", "Failed to send to " + username + ": " + e.getMessage());
         }
     }
+
+    public void sendObject(Object obj) {
+        try {
+            writer.writeObject(obj);
+            writer.flush();
+        } catch (IOException e) {
+            ServerLogger.log("ERROR", "Failed to send object to " + username);
+        }
+    }
+
     public String getUsername() {
         return username;
     }
 
     private void closeConnection() {
-        try {
-            if (username != null) {
-                server.broadcast(new Message(username + " has left the chat."), this);
-                System.out.println("User " + username + " has left the chat.");
-            }
-            server.removeClient(this);
-            if (socket != null) {
-                socket.close();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+        running = false;
+        server.removeClient(this);
+        if (username != null) {
+            ServerLogger.log("LEAVE", username + " disconnected");
+            server.broadcast(Message.systemMessage(username + " has left the chat"), this);
+            server.broadcastUserList();
         }
+        try {
+            if (socket != null && !socket.isClosed()) socket.close();
+        } catch (IOException ignored) {}
+    }
+
+    private String sanitize(String input) {
+        return input.replaceAll("[<>&\"']", "");
     }
 }
+
