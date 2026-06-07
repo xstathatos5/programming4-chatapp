@@ -145,3 +145,12 @@
 [2026-06-07 00:53:05] [MESSAGE] billly: [2026-06-07 00:53:05] SERVER: billly: Hello
 [2026-06-07 00:53:20] [MESSAGE] bob: [2026-06-07 00:53:20] SERVER: bob: good lad
 [2026-06-07 00:53:31] [MESSAGE] xen: [2026-06-07 00:53:31] SERVER: :)
+[2026-06-07 15:46:11] [SERVER] Chat server on port 5000
+[2026-06-07 15:46:11] [WEB] Web dashboard started on port 8000
+[2026-06-07 15:46:11] [SERVER] Chat server started on port 5000
+[2026-06-07 15:46:53] [CONNECTION] New client connected: /127.0.0.1
+[2026-06-07 15:46:59] [MESSAGE] xen: [2026-06-07 15:46:59] SERVER: xen: hi
+[2026-06-07 15:49:06] [CONNECTION] New client connected: /127.0.0.1
+[2026-06-07 15:49:11] [CONNECTION] New client connected: /127.0.0.1
+[2026-06-07 15:49:19] [MESSAGE] xen: [2026-06-07 15:49:19] SERVER: xen: hello
+[2026-06-07 15:49:27] [MESSAGE] sam: [2026-06-07 15:49:27] SERVER: sam: hello mate
