@@ -23,7 +23,7 @@ Or Start CLI Client
 Web server link: 
 - http://localhost:8000/
 Server Instructions
-- Enter username and password
+- Enter username
 - Type messages and press Enter
 - Use command buttons
 
