@@ -8,16 +8,43 @@ import java.util.Scanner;
 
 import com.chat.server.model.Message;
 
+/**
+ * Chat client that connects to the chat server, sends messages
+ * entered by the user and displays incoming messages from other
+ * connected users.
+ * 
+ * <p>The client establishes a socket connections to the
+ * specified port and host, sends the username to the server
+ * and starts a thread to continuously listen for messages.</p>
+ * 
+ * <p>User can quit with</p>
+ * {@code /quit}
+ * @author Xen Stathatos
+ */
+
 public class ChatClient {
     private String hostName;
     private int port;
     private String username;
 
+    /**
+     * Creates a new chat client
+     * @param hostname
+     * @param port
+     */
     public ChatClient(String hostname, int port){
         this.hostName = hostname;
         this.port = port;
     }
 
+    /**
+     * This method:
+     * <ul>
+     * <li>Establishes a socket connection</li>
+     * <li>Sends username to server</li>
+     * <li>Reads user input and sends messages</li>
+     * </ul>
+     */
     public void execute() {
         try (Socket socket = new Socket(hostName, port);
              ObjectOutputStream writer = new ObjectOutputStream(socket.getOutputStream());
@@ -48,7 +75,7 @@ public class ChatClient {
             do {
                 System.out.print("> ");
                 text = scanner.nextLine();
-                writer.writeObject(new Message(text, text));
+                writer.writeObject(new Message(username, text));
                 writer.flush();
             } while (!text.equalsIgnoreCase("/quit"));
 
@@ -56,7 +83,10 @@ public class ChatClient {
             e.printStackTrace();
         }
     }
-
+    /**
+     * Application entry point
+     * @param args
+     */
     public static void main(String[] args) {
         ChatClient client = new ChatClient("localhost", 5000);
         client.execute();

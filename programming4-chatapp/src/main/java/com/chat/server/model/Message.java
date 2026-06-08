@@ -4,6 +4,22 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Represents a message sent between clients in the chat system
+ * inlcuding:
+ * <ul>
+ * <li>username</li>
+ * <li>The message content</li>
+ * <li>A timestamp indicating when the message was created</li>
+ * <li>indication of whether it is a message from the system or a user</li>
+ * </ul>
+ * 
+ * <p>The class implements {@link Serializable} so that message
+ * objects can be sent across network streams</p>
+ * 
+ * @author Xen Stathatos
+ */
+
 public class Message implements Serializable {
     private static final long serialVersionUID = 1L;
     private static final DateTimeFormatter FORMATTER = 
@@ -14,6 +30,11 @@ public class Message implements Serializable {
     private final String timestamp;
     private final boolean systemMessage;
 
+    /**
+     * Creates a standard user message
+     * @param sender
+     * @param content
+     */
     public Message(String sender, String content) {
         this.sender = sender;
         this.content = content;
@@ -21,6 +42,11 @@ public class Message implements Serializable {
         this.systemMessage = false;
     }
 
+    /**
+     * Creates a new system message
+     * @param content
+     * @return a new system message instance
+     */
     public static Message systemMessage(String content) {
         return new Message("SYSTEM", content, true);
     }
@@ -37,6 +63,10 @@ public class Message implements Serializable {
     public String getTimestamp() { return timestamp; }
     public boolean isSystemMessage() { return systemMessage; }
 
+    /**
+     * Returns a formatted string representation of the message.
+     * @return the formatted message string
+     */
     @Override
     public String toString() {
         if (systemMessage) {

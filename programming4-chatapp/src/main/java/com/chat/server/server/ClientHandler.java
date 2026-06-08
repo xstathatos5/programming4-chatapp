@@ -7,7 +7,22 @@ import java.net.Socket;
 
 import com.chat.server.model.Message;
 
-
+/**
+ * Handles communication between the chat server and
+ * a single connected client.
+ * 
+ * Each client connection is managed by its own {@code ClientHandler}
+ * running on a separate thread.
+ * <ul>
+ * <li>Reading incoming data from the client</li>
+ * <li>Processing usernames and chat messages</li>
+ * <li>Sending messages back to the client.</li>
+ * <li>Notifying the server when clients join or leave</li>
+ * </ul>
+ * 
+ * <p>This class acts as the bridge between a connected socket and 
+ * the {@link ChatServer} message broadcasting system</p>
+ */
 public class ClientHandler implements Runnable {
     private final Socket socket;
     private final ChatServer server;
@@ -16,6 +31,11 @@ public class ClientHandler implements Runnable {
     private String username;
     private volatile boolean running = true;
 
+    /**
+     * Creates a new handler for a connected client socket
+     * @param socket
+     * @param server
+     */
     public ClientHandler(Socket socket, ChatServer server) {
         this.socket = socket;
         this.server = server;
@@ -28,6 +48,17 @@ public class ClientHandler implements Runnable {
         }
     }
 
+    /**
+     * Main execution for the client handler thread
+     * 
+     * The method includes:
+     * <ul>
+     * <li>Reads the username from the client</li>
+     * <li>Join notifications</li>
+     * <li>Continously listens for messages</li>
+     * <li>Handles client connection requests</li>
+     * </ul>
+     */
     @Override
     public void run() {
         try {
@@ -55,6 +86,7 @@ public class ClientHandler implements Runnable {
                 }
             }
         } catch (IOException | ClassNotFoundException e) {
+            ServerLogger.log("ERROR", "Client Error: " + e.getMessage());
         } finally {
             closeConnection();
         }
@@ -82,6 +114,20 @@ public class ClientHandler implements Runnable {
         return username;
     }
 
+    /**
+     * Closes the client connection and performs clean up.
+     * 
+     * This method:
+     * <ul>
+     * <li>Removes clients from the server</li>
+     * <li>Leave message to other clients</li>
+     * <li>Updates the connected user list</li>
+     * <li>Closes the socket connection</li>
+     * 
+     * <p>Automatically called when the client disconnects or
+     * an error occurs</p>
+     * </ul>
+     */
     private void closeConnection() {
         running = false;
         server.removeClient(this);
@@ -95,6 +141,11 @@ public class ClientHandler implements Runnable {
         } catch (IOException ignored) {}
     }
 
+    /**
+     * Removes potentially unsafe characters
+     * @param input
+     * @return a cleaned version of username
+     */
     private String sanitize(String input) {
         return input.replaceAll("[<>&\"']", "");
     }

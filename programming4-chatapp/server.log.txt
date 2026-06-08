@@ -178,3 +178,46 @@
 [2026-06-07 18:24:06] [LEAVE] xen disconnected
 [2026-06-07 18:24:28] [MESSAGE] bob: disconnected
 [2026-06-07 18:24:28] [LEAVE] bob disconnected
+[2026-06-07 18:34:59] [SERVER] Starting chat server...
+[2026-06-07 18:34:59] [WEB] Web dashboard started on port 8000
+[2026-06-07 18:34:59] [SERVER] Chat server listening on port 5000
+[2026-06-07 18:35:29] [CONNECTION] New connection from /127.0.0.1
+[2026-06-07 18:35:31] [JOIN] xen connected from /127.0.0.1
+[2026-06-07 18:35:35] [MESSAGE] xen: Hello
+[2026-06-07 18:36:10] [CONNECTION] New connection from /127.0.0.1
+[2026-06-07 18:36:10] [JOIN] bob connected from /127.0.0.1
+[2026-06-07 18:36:21] [MESSAGE] bob: Hi xen
+[2026-06-07 18:36:58] [CONNECTION] New connection from /127.0.0.1
+[2026-06-07 18:36:58] [JOIN] billy connected from /127.0.0.1
+[2026-06-07 18:37:06] [MESSAGE] billy: disconnected
+[2026-06-07 18:37:06] [LEAVE] billy disconnected
+[2026-06-07 18:37:20] [MESSAGE] bob: disconnected
+[2026-06-07 18:37:20] [LEAVE] bob disconnected
+[2026-06-07 18:37:27] [CONNECTION] New connection from /127.0.0.1
+[2026-06-07 18:37:27] [JOIN] Bob connected from /127.0.0.1
+[2026-06-07 18:37:41] [MESSAGE] Bob: disconnected
+[2026-06-07 18:37:41] [LEAVE] Bob disconnected
+[2026-06-07 18:37:51] [LEAVE] xen disconnected
+[2026-06-07 18:49:00] [SERVER] Starting chat server...
+[2026-06-07 18:49:00] [WEB] Web dashboard started on port 8000
+[2026-06-07 18:49:00] [SERVER] Chat server listening on port 5000
+[2026-06-07 18:52:14] [SERVER] Starting chat server...
+[2026-06-07 18:52:14] [WEB] Web dashboard started on port 8000
+[2026-06-07 18:52:14] [SERVER] Chat server listening on port 5000
+[2026-06-07 18:52:46] [CONNECTION] New connection from /127.0.0.1
+[2026-06-07 18:52:53] [JOIN] xen connected from /127.0.0.1
+[2026-06-07 18:52:59] [MESSAGE] xen: Hello
+[2026-06-07 18:53:53] [CONNECTION] New connection from /127.0.0.1
+[2026-06-07 18:53:53] [JOIN] bob connected from /127.0.0.1
+[2026-06-07 18:54:09] [MESSAGE] bob: hello xen
+[2026-06-07 18:55:05] [CONNECTION] New connection from /127.0.0.1
+[2026-06-07 18:55:05] [JOIN] billy connected from /127.0.0.1
+[2026-06-07 18:55:22] [MESSAGE] billy: hello bob
+[2026-06-07 18:55:30] [MESSAGE] billy: disconnected
+[2026-06-07 18:55:30] [LEAVE] billy disconnected
+[2026-06-07 18:55:54] [CONNECTION] New connection from /127.0.0.1
+[2026-06-07 18:55:54] [JOIN] billy connected from /127.0.0.1
+[2026-06-07 18:56:04] [MESSAGE] billy: Hello
+[2026-06-07 18:56:11] [MESSAGE] billy: disconnected
+[2026-06-07 18:56:11] [LEAVE] billy disconnected
+[2026-06-07 18:56:24] [LEAVE] bob disconnected

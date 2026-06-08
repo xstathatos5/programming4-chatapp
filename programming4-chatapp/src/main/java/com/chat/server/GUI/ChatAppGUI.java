@@ -24,6 +24,26 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+/**
+ * GUI created with JavaFX that gives a more usable and clean
+ * interface to the Chat app.
+ * 
+ * The application provides:
+ * <ul>
+ * <li>User can enter a username</li>
+ * <li>An interface to send and recieve messages</li>
+ * <li>A connected user list</li>
+ * <li>Server connection and disconnection handling</li>
+ * </ul>
+ * 
+ * <p>Sockets and object streams are used to communicate with 
+ * the server. Incoming messages are processed on a background
+ * thread while UI updates are executed on JavaFX Application
+ * thread</p>
+ * 
+ * @author Xen Stathatos
+ */
+
 public class ChatAppGUI extends Application {
     private String hostName = "localhost";
     private int port = 5000;
@@ -38,18 +58,33 @@ public class ChatAppGUI extends Application {
     private ObjectInputStream reader;
     private ListView<String> userListView;
 
-    private final String BACKGROUND_BLACK = "-fx-background-color: #000000;";
-    private final String LABEL_STYLE = "-fx-text-fill: white; -fx-font-family: 'Courier New';";
-    private final String INPUT_STYLE = "-fx-background-color: #111111; -fx-text-fill: white; -fx-prompt-text-fill: #888888; -fx-border-color: #444444;";
-    private final String BUTTON_STYLE = "-fx-background-color: #222222; -fx-text-fill: white; -fx-border-color: #555555; -fx-border-width: 1; -fx-cursor: hand;";
-    private final String DISCONNECT_BUTTON_STYLE = "-fx-background-color: #8B0000; -fx-text-fill: white; -fx-border-color: #555555; -fx-border-width: 1; -fx-cursor: hand;";
+    private static final String BACKGROUND_BLACK = "-fx-background-color: #000000;";
+    private static final String LABEL_STYLE = "-fx-text-fill: white; -fx-font-family: 'Courier New';";
+    private static final String INPUT_STYLE = "-fx-background-color: #111111; -fx-text-fill: white; -fx-prompt-text-fill: #888888; -fx-border-color: #444444;";
+    private static final String BUTTON_STYLE = "-fx-background-color: #222222; -fx-text-fill: white; -fx-border-color: #555555; -fx-border-width: 1; -fx-cursor: hand;";
+    private static final String DISCONNECT_BUTTON_STYLE = "-fx-background-color: #8B0000; -fx-text-fill: white; -fx-border-color: #555555; -fx-border-width: 1; -fx-cursor: hand;";
 
+    /**
+     * Initializes and launches the application.
+     * 
+     * <p>This method is called automatically and
+     * displays the login screen</p>
+     * 
+     * @param primaryStage
+     */
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         showLoginScreen();
     }
 
+    /**
+     * Displays the login screen where the user can enter a username
+     * and connect to the server.
+     * 
+     * <p>Any connection state or UI references are reset before the
+     * login screen</p>
+     */
     private void showLoginScreen() {
         writer = null;
         reader = null;
@@ -87,7 +122,10 @@ public class ChatAppGUI extends Application {
         loginButton.setOnAction(e -> handleLoginAttempt(usernameField.getText().trim()));
         usernameField.setOnAction(e -> handleLoginAttempt(usernameField.getText().trim()));
     }
-
+    /**
+     * Validates the login attempt and allows the connection
+     * @param usernameInput
+     */
     private void handleLoginAttempt(String usernameInput){
         if (!usernameInput.isEmpty()){
             this.username = usernameInput;
@@ -98,7 +136,20 @@ public class ChatAppGUI extends Application {
             }
         }
     }
-
+    /**
+     * Creates and displays the main chat interface.
+     * 
+     * The interface inlcudes:
+     * <ul>
+     * <li>Connection Status</li>
+     * <li>A chat display window</li>
+     * <li>A connected user list</li>
+     * <li>Message input</li>
+     * 
+     * <p>A background listener thread is started to 
+     * recieve messages</p>
+     * </ul>
+     */
     private void showChatScreen(){
         BorderPane root = new BorderPane();
         root.setPadding(new Insets(10));
@@ -184,6 +235,14 @@ public class ChatAppGUI extends Application {
         startListening();
     }
 
+    /**
+     * Establishes the socket connection and intializes the object
+     * streams used for communication. The users username is sent
+     * to the server if successfully connected.
+     * 
+     * @return {@code true} if successfull
+     *          else {@code false}
+     */
     private boolean connectToServer() {
         try {
             socket = new Socket(hostName, port);
@@ -199,14 +258,14 @@ public class ChatAppGUI extends Application {
         }
     }
 
+    /**
+     * Sends the message currently entered in the input feild.
+     * ignores empty messages.
+     */
     private void sendMessage() {
     String text = messageField.getText().trim();
     if (text.isEmpty()) return;
 
-    if (text.equalsIgnoreCase("/quit")) {
-        disconnectFromServer();
-        return;
-    }
     Message message = new Message(username, text);
     if (sendMessageToServer(message)) {
         appendChatMessage(message.toString());
@@ -214,9 +273,15 @@ public class ChatAppGUI extends Application {
     } else {
         showAlert("Error", "Failed to send message.");
     }
-}
+    }
 
-
+    /**
+     * Sends a message object to the connected chat server
+     * 
+     * @param message
+     * @return {@code true} if the message sent
+     *         else {@code false}
+     */
     private boolean sendMessageToServer(Message message) {
         try {
             writer.writeObject(message);
@@ -229,6 +294,16 @@ public class ChatAppGUI extends Application {
         }
     }
 
+    /**
+     * Starts a background thread that listens for incoming
+     * objects
+     * 
+     * Objects supported:
+     * <ul>
+     * <li>{@link Message} containing messages</li>
+     * <li>User lists used to update the user connected display</li>
+     * </ul>
+     */
     private void startListening() {
         Thread receiverThread = new Thread(() -> {
             try {
@@ -255,7 +330,10 @@ public class ChatAppGUI extends Application {
         receiverThread.setDaemon(true);
         receiverThread.start();
     }
-
+    /**
+     * Appends message to chat box
+     * @param message
+     */
     private void appendChatMessage(String message){
         if (chatArea != null) {
             chatArea.appendText(message + "\n");
@@ -282,7 +360,11 @@ public class ChatAppGUI extends Application {
 
         Platform.runLater(() -> showLoginScreen());
     }
-
+    /**
+     * Displays information for the user
+     * @param title
+     * @param message
+     */
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
@@ -294,7 +376,6 @@ public class ChatAppGUI extends Application {
         
         alert.showAndWait();
     }
-
     public static void main(String[] args) {
         launch(args);
     }

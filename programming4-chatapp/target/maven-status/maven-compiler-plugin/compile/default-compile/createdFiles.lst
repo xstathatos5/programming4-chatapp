@@ -1,9 +1,9 @@
+com\chat\server\GUI\ChatAppGUI$1.class
 com\chat\server\model\Message.class
 com\chat\server\server\ChatServer.class
 com\chat\server\client\ChatClient.class
 com\chat\server\server\WebServer.class
 com\chat\server\server\WebServer$DashboardHandler.class
 com\chat\server\server\ServerLogger.class
-com\chat\server\client\ClientReceiver.class
 com\chat\server\GUI\ChatAppGUI.class
 com\chat\server\server\ClientHandler.class
